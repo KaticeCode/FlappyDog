@@ -3,6 +3,9 @@ from random import randint
 pygame.init()
 
 WIDTH, HEIGHT = 800, 600
+pygame.display.set_caption('FlappyDog')
+programIcon = pygame.image.load('images/icon.ico')
+pygame.display.set_icon(programIcon)
 fps = 60
 
 font = pygame.font.Font(None, 80)
@@ -49,7 +52,7 @@ while play:
     
     if timer > 0:
         timer -= 1
-    
+        
     if state == 'start':
         if click and timer == 0 and len(pipes) == 0: 
             state = 'play'
@@ -91,6 +94,7 @@ while play:
         sy, ay = 0, 0
         pipesPos = HEIGHT // 2
         state = 'start'
+        score = 0
         timer = 60
     else:
         pass
